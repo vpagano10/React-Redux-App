@@ -3,10 +3,13 @@ import React, { useEffect } from 'react';
 
 // REDUX/REACT-REDUX
 import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 
 // COMPONENT IMPORTS
 import { fetchDog } from './actions/index';
 import NavBar from './components/NavBar';
+import SavedPics from './components/SavedPics';
+import Home from './components/Home';
 
 // STYLING
 import './App.css';
@@ -34,24 +37,20 @@ const Button = styled.button`
     color: ivory;
   }
 `;
-// const PageTitle = styled.h1`
-// `;
-// const PageTitle = styled.h1`
-// `;
 const Image = styled.img`
   border-radius: 25%;
   width: 25%;
   height: 25%;
 `;
 
-function App(props) {
-  useEffect(() => {
-    props.fetchDog();
-  }, []);
+function App() {
+  // useEffect(() => {
+  //   props.fetchDog();
+  // }, []);
 
   return (
     <AppDiv>
-      <NavBar />
+      {/* <NavBar />
       <PageContent>Thinking of adding a new member to the family!</PageContent>
       <PageContent>With DogSearcher, look for the dog you want to bring into your life. Looking for a particular breed or simply searching for one that fits your family has never been easier. If you find the image of a dog that you like simply "like" the picture to save it for later.</PageContent>
       {props.dogError && <p>Error: {props.dogError}</p>}
@@ -63,24 +62,29 @@ function App(props) {
         )}
       </div>
       <Button>Save</Button>
-      <Button>Next</Button>
+      <Button>Next</Button> */}
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/savedpics' component={SavedPics} />
+      </Switch>
     </AppDiv>
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    isDogLoading: state.dog.isLoading,
-    dogImage: state.dog.dog,
-    dogError: state.dog.error
-  }
-}
+// function mapStateToProps(state) {
+//   return {
+//     isDogLoading: state.dog.isLoading,
+//     dogImage: state.dog.dog,
+//     dogError: state.dog.error
+//   }
+// }
 
-const mapDispatchToProps = {
-  fetchDog
-}
+// const mapDispatchToProps = {
+//   fetchDog
+// }
 
-export default connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(App);
+// export default connect(
+//   mapStateToProps, 
+//   mapDispatchToProps
+// )(App);
+export default App;

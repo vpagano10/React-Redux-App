@@ -11,22 +11,30 @@ const NavDiv = styled.div`
 `;
 const PageTitle = styled.h1`
     color: khaki;
+    &:hover {
+        color: ivory;
+    }
 `;
 const PageLink = styled(Link)`
     text-decoration: none;
     color: khaki;
     margin-top: 30px;
     &:hover {
-        color: coral;
+        color: ivory;
         transform: scale(1.5);
         margin-right: 10px;
     }
+`;
+const HomeLink = styled(Link)`
+    text-decoration: none;
 `;
 
 function NavBar() {
     return (
         <NavDiv>
-            <PageTitle>DogFinder</PageTitle>
+            <HomeLink to='/'>
+                <PageTitle>DogFinder</PageTitle>
+            </HomeLink>
             <PageLink to='/savedpics'>My Saved Pics</PageLink>
         </NavDiv>
     )
