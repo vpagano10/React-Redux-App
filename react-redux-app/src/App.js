@@ -44,25 +44,9 @@ const Image = styled.img`
 `;
 
 function App() {
-  // useEffect(() => {
-  //   props.fetchDog();
-  // }, []);
 
   return (
     <AppDiv>
-      {/* <NavBar />
-      <PageContent>Thinking of adding a new member to the family!</PageContent>
-      <PageContent>With DogSearcher, look for the dog you want to bring into your life. Looking for a particular breed or simply searching for one that fits your family has never been easier. If you find the image of a dog that you like simply "like" the picture to save it for later.</PageContent>
-      {props.dogError && <p>Error: {props.dogError}</p>}
-      <div>
-        {props.isDogLoading ? (
-          <div className='spinner' />
-        ) : (
-          <Image src={props.dogImage} alt='Good Boy' />
-        )}
-      </div>
-      <Button>Save</Button>
-      <Button>Next</Button> */}
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/savedpics' component={SavedPics} />
@@ -71,20 +55,4 @@ function App() {
   );
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     isDogLoading: state.dog.isLoading,
-//     dogImage: state.dog.dog,
-//     dogError: state.dog.error
-//   }
-// }
-
-// const mapDispatchToProps = {
-//   fetchDog
-// }
-
-// export default connect(
-//   mapStateToProps, 
-//   mapDispatchToProps
-// )(App);
 export default App;
